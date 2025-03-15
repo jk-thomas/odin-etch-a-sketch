@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-Sketch</title>
+    <script src="script.js" defer></script>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h1 class="title" style="padding: 0; margin: 0">Etch-a-Sketch</h1>
+    </header>
+    <main class="main">
+        <div class="options">
+            <div class="color-grid">
+                <button class="color-btn" data-color="red" style="background-color: red;"></button>
+                <button class="color-btn" data-color="orange" style="background-color: orange;"></button>
+                <button class="color-btn" data-color="yellow" style="background-color: yellow;"></button>
+                <button class="color-btn" data-color="green" style="background-color: green;"></button>
+                <button class="color-btn" data-color="blue" style="background-color: blue;"></button>
+                <button class="color-btn" data-color="purple" style="background-color: purple;"></button>
+                <button class="color-btn" data-color="white" style="background-color: white;"></button>
+                <button class="color-btn" data-color="gray" style="background-color: gray;"></button>
+                <button class="color-btn" data-color="black" style="background-color: black;"></button>
+            </div>
+            <button class="btn" id="size">Size</button>
+            <button class="btn" id="sketch">Sketch</button>
+            <button class="btn" id="rainbow">Rainbow</button>
+            <button class="btn" id="clear">Clear</button>
+        </div>
+        <div class="canvas"></div>
+    </main>
+</body>
+</html>
