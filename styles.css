@@ -1,6 +1,6 @@
 :root {
     --primary-accent: #c8c8c8;
-    --primary-accent-dark: #c0c0c0;
+    --primary-accent-dark: #c4c4c4;
     --secondary-accent-light: rgb(222, 202, 74);
     --secondary-accent-dark: rgb(205, 187, 71);
     --background-light: #2f4f4f;
@@ -22,7 +22,7 @@ body {
     justify-content: center;
     padding: 20px;
     margin-bottom: 30px;
-    box-shadow: black 5px 5px;
+    /* box-shadow: black 5px 5px; */
 }
 
 .title {
@@ -65,7 +65,7 @@ body {
 }
 
 .color-btn:hover {
-    /* transform: scale(1.1); */
+    transform: scale(1.1);
 }
 
 .color-btn.pressed {

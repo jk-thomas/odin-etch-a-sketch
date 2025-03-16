@@ -1,5 +1,5 @@
 const SIDE_LENGTH = 600; //px
-let BLOCKS = 32;
+let BLOCKS = 32; //default
 
 let BLOCK_LENGTH = SIDE_LENGTH / BLOCKS;
 
@@ -8,24 +8,30 @@ let BLOCK_LENGTH = SIDE_LENGTH / BLOCKS;
 // const rootStyles = getComputedStyle(root);
 // const backgroundLight = rootStyles.getPropertyValue("--background-light").trim();
 
-let canvas = document.querySelector(".canvas");
+const canvas = document.querySelector(".canvas");
 
 let color = "black"
 let sketchMode = false;
 let rainbowMode = false;
 
+//let BLOCK_LENGTH = Math.floor(Math.min(canvas.clientWidth, canvas.clientHeight)) / BLOCKS;
+
 function createCanvas() {
     deleteCanvas();
+    BLOCK_LENGTH = SIDE_LENGTH / BLOCKS; //WORKS??
     for (let i = 0; i < BLOCKS; i++) {
+        //canvas.innerHTML = '';
         //create 100 div rows
-        const row = document.createElement("div");
+        let row = document.createElement("div");
         row.classList.add("row");
         //row.style.height = `${BLOCK_LENGTH}px`;
 
         for (let j = 0; j < BLOCKS; j++) {
             //create 100 div blocks for each row
-            const block = document.createElement("div");
+            let block = document.createElement("div");
             block.classList.add("block");
+            // block.style.boxSizing = 'border-box';
+            // block.style.display = "flex";
             block.setAttribute("style", `height: ${BLOCK_LENGTH}px; width: ${BLOCK_LENGTH}px;`);
             block.addEventListener("mouseover", () => {
                 if (sketchMode) {
@@ -52,12 +58,26 @@ function deleteCanvas() {
         canvas.removeChild(row);
 }
 
-let blocks = document.querySelectorAll(".block");
 function clearCanvas() {
+    let blocks = document.querySelectorAll(".block");
     blocks.forEach(block => {
-        block.style.backgroundColor = "black";
+        block.style.backgroundColor = "transparent";
     })
 }
+
+let options = document.querySelector(".options");
+let optionsButtons = options.querySelectorAll("button");
+optionsButtons.forEach(button => {
+    button.addEventListener("mousedown", () => {
+        button.classList.toggle("pressed");
+    });
+    button.addEventListener("mouseup", () => {
+        button.classList.toggle("pressed");
+    });
+    button.addEventListener("mouseleave", () => {
+        button.classList.remove("pressed");
+    });
+});
 
 let colorGrid = document.querySelectorAll(".color-btn");
 colorGrid.forEach(button => {
@@ -66,29 +86,20 @@ colorGrid.forEach(button => {
         colorGrid.forEach(btn => btn.classList.remove("active"));
         button.classList.add("active");
     })
-    button.addEventListener("mousedown", () => {
-        button.classList.toggle("pressed");
-    });
-    button.addEventListener("mouseup", () => {
-        button.classList.toggle("pressed");
-    });
-})
+});
 
 let size = document.getElementById("size");
 size.addEventListener("click", () => {
-    let dim = prompt("Enter grid size (1-100):", "32");
-    while (dim < 1 || dim > 100) {
-        dim = prompt("Invalid. Enter grid size (1-100):", "32");
-    
+    let dim = prompt("Enter grid size (1-96):", "32");
+    if (dim === null) return;
+
+    while (isNaN(dim) || dim < 1 || dim > 96) {
+        dim = prompt("Invalid. Enter grid size (1-96):", "32");
+        if (dim === null) return;
     }
+    
     BLOCKS = dim;
     createCanvas();
-})
-size.addEventListener("mousedown", () => {
-    size.classList.toggle("pressed");
-});
-size.addEventListener("mouseup", () => {
-    size.classList.toggle("pressed");
 });
 
 let sketch = document.getElementById("sketch");
@@ -97,12 +108,6 @@ sketch.addEventListener("click", () => {
     clearCanvas();
     sketch.classList.toggle("active");
     rainbow.classList.remove("active");
-});
-sketch.addEventListener("mousedown", () => {
-    sketch.classList.toggle("pressed");
-});
-sketch.addEventListener("mouseup", () => {
-    sketch.classList.toggle("pressed");
 });
 
 let rainbow = document.getElementById("rainbow");
@@ -113,22 +118,10 @@ rainbow.addEventListener("click", () => {
     rainbow.classList.toggle("active");
     sketch.classList.remove("active");
 });
-rainbow.addEventListener("mousedown", () => {
-    rainbow.classList.toggle("pressed");
-});
-rainbow.addEventListener("mouseup", () => {
-    rainbow.classList.toggle("pressed");
-});
 
-let clear = document.getElementById("clear");
+let clear = document.querySelector("#clear");
 clear.addEventListener("click", () => {
     clearCanvas();
-})
-clear.addEventListener("mousedown", () => {
-    clear.classList.toggle("pressed");
-});
-clear.addEventListener("mouseup", () => {
-    clear.classList.toggle("pressed");
 });
 
 createCanvas();
