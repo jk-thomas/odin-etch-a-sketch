@@ -7,4 +7,4 @@ Etch-a-Sketch created using HTML, CSS, and Javascript
 - [RAINBOW] Random color selector
 - [CLEAR] Clears the grid
 
-[Live Preview](https://github.com/jk-thomas/odin-etch-a-sketch) (Beta)
+[Live Preview](https://jk-thomas.github.io/odin-etch-a-sketch/) (Beta)
