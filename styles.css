@@ -42,16 +42,15 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    /* border: 1px solid blue; */
     background-color: var(--primary-accent);
     box-shadow: black 5px 5px;
 }
 
 .color-grid {
     display: flex;
-    flex-wrap: wrap;  /* Allows wrapping into multiple rows */
-    width: 120px;  /* 3 buttons per row (40px each) */
-    gap: 5px;  /* Spacing between buttons */
+    flex-wrap: wrap;
+    width: 120px;
+    gap: 5px;
 }
 
 .color-btn {
@@ -73,7 +72,7 @@ body {
 }
 
 .color-btn.active {
-    border: 2px solid white; /* Highlight active color */
+    border: 2px solid white;
     /* box-shadow: 0px 0px 8px white; */
     /* box-shadow: white 1px 1px; */
     box-shadow: black 2px 2px;
@@ -135,9 +134,6 @@ body {
     box-sizing: border-box; /* keeps border within box dimensions, instead of outside, consistent sizing */
     margin: 0;
     padding: 0;
-    /* flex: 0 0 auto; */
-    /* width: 6px;
-    height: 6px; */
 }
 
 .block:hover {
@@ -150,5 +146,4 @@ body {
     justify-content: center;
     padding: 20px;
     margin-top: 30px;
-    /* box-shadow: black 5px 5px; */
 }

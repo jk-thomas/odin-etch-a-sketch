@@ -28,7 +28,12 @@ function createCanvas() {
         for (let j = 0; j < BLOCKS; j++) { // create <=96 div blocks for each row
             let block = document.createElement("div");
             block.classList.add("block");
-            block.setAttribute("style", `height: ${BLOCK_LENGTH}px; width: ${BLOCK_LENGTH}px;`);
+            block.setAttribute("style", `
+                height: ${BLOCK_LENGTH}px; 
+                width: ${BLOCK_LENGTH}px;
+                background-color: rgba(0, 0, 0, 0);
+                opacity: 1;
+            `);
             blockHover(block);
             row.appendChild(block);
         }
@@ -95,6 +100,7 @@ function clearCanvas() {
     let blocks = document.querySelectorAll(".block");
     blocks.forEach(block => {
         block.style.backgroundColor = "transparent";
+        block.style.opacity = "1";
     })
 }
 
@@ -140,8 +146,6 @@ sketch.addEventListener("click", () => {
     sketchMode = !sketchMode;
     //clearCanvas();
     sketch.classList.toggle("active");
-
-    //rainbow.classList.remove("active"); // sketch with rainbow
 });
 
 let rainbow = document.getElementById("rainbow");
@@ -149,7 +153,7 @@ let activeColorButton = document.querySelector(".color-btn.active");
 rainbow.addEventListener("click", () => {
     rainbowMode = !rainbowMode;
     //clearCanvas();
-    colorGrid.forEach(btn => btn.classList.remove("active"));
+    //colorGrid.forEach(btn => btn.classList.remove("active"));
 
     if (rainbowMode) {
         activeColorButton = document.querySelector(".color-btn.active"); 
@@ -168,7 +172,6 @@ rainbow.addEventListener("click", () => {
     //     colorBtn.classList.toggle("active");
 
     rainbow.classList.toggle("active");
-    //sketch.classList.remove("active");
 });
 
 let clear = document.querySelector("#clear");
