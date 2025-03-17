@@ -79,6 +79,14 @@ body {
     box-shadow: black 2px 2px;
 }
 
+.color-btn:disabled {
+    transition: none;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.5;
+    cursor: auto;
+}
+
 .btn {
     font-family: 'Courier New', Courier, monospace;
     font-size: larger;
@@ -134,4 +142,13 @@ body {
 
 .block:hover {
     background-color: #1f3434;
+}
+
+.footer {
+    background-color: var(--background-dark);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 30px;
+    /* box-shadow: black 5px 5px; */
 }
