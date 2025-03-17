@@ -21,11 +21,11 @@ let rainbowMode = false;
 function createCanvas() {
     deleteCanvas();
     BLOCK_LENGTH = SIDE_LENGTH / BLOCKS; //WORKS??
-    for (let i = 0; i < BLOCKS; i++) { // create <96 div rows
+    for (let i = 0; i < BLOCKS; i++) { // create <=96 div rows
         let row = document.createElement("div");
         row.classList.add("row");
 
-        for (let j = 0; j < BLOCKS; j++) { // create <96 div blocks for each row
+        for (let j = 0; j < BLOCKS; j++) { // create <=96 div blocks for each row
             let block = document.createElement("div");
             block.classList.add("block");
             block.setAttribute("style", `height: ${BLOCK_LENGTH}px; width: ${BLOCK_LENGTH}px;`);
